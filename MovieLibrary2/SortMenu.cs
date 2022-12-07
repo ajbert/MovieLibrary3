@@ -33,6 +33,8 @@ namespace MovieLibrary2
                             {
                                 var rankedOcc = db.UserMovies.Include(x => x.Movie).Where(x => x.User.Age == searchAge);
 
+                                
+
                                 var sortedList = rankedOcc.OrderByDescending(movie => movie.Rating).ThenBy(movie => movie.Movie.Title).FirstOrDefault();
                                 
                                 if (sortedList != null) {
