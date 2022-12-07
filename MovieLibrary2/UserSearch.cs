@@ -273,7 +273,7 @@ namespace MovieLibrary2
                                     Console.WriteLine($"What do you rate {rateMovie.Title}? (1-5)");
                                     var rating = Convert.ToInt32(Console.ReadLine());
 
-                                    Console.WriteLine($"You want rate {rateMovie.Title} {rating}? y/n?");
+                                    Console.WriteLine($"Do you want rate {rateMovie.Title} a {rating}? y/n?");
                                     var confirm = Console.ReadLine();
 
                                     if (confirm.ToLower() != "y")

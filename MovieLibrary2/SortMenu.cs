@@ -39,13 +39,13 @@ namespace MovieLibrary2
                                 var sortedList = rankedOcc.OrderByDescending(movie => movie.Rating).ThenBy(movie => movie.Movie.Title).FirstOrDefault();
                                 
                                 if (sortedList != null) {
-                                    Console.WriteLine($"{sortedList.Movie.Title} {sortedList.Rating}");
-                                      }
+                                    Console.WriteLine($"Movie: {sortedList.Movie.Title} Rating {sortedList.Rating}");
+                                }
                                 else
                                 {
                                     Console.WriteLine("There were no results for your search");
                                 }
-                            }
+                                }
                             catch (Exception)
                             {
 
@@ -76,7 +76,7 @@ namespace MovieLibrary2
 
                                     if (sortedList != null)
                                     {
-                                        Console.WriteLine($"{sortedList.Movie.Title} {sortedList.Rating}");
+                                        Console.WriteLine($"Movie: {sortedList.Movie.Title} Rating {sortedList.Rating}");
                                     }
                                     else
                                         Console.WriteLine("There were no results for your search");
@@ -114,7 +114,7 @@ namespace MovieLibrary2
 
                                     if (sortedList != null)
                                     {
-                                        Console.WriteLine($"{sortedList.Movie.Title} {sortedList.Rating}");
+                                        Console.WriteLine($"Movie: {sortedList.Movie.Title} Rating {sortedList.Rating}");
                                     }
                                     else
                                         Console.WriteLine("There were no results for your search");
