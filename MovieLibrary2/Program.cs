@@ -32,7 +32,7 @@ public class Program
             Console.WriteLine("5. List all movies");
             Console.WriteLine("6. Search by year");
             Console.WriteLine("7. User Menu");
-            Console.WriteLine("8. Get Top Rated Movie");
+            Console.WriteLine("8. Get Top Rated Movie   ");
             Console.WriteLine("0. Exit");
             input = Console.ReadLine();
 

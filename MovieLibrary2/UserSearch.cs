@@ -25,6 +25,7 @@ namespace MovieLibrary2
                 Console.WriteLine("5. Movies Rating by User");
                 Console.WriteLine("6. Add User");
                 Console.WriteLine("7. Delete User");
+                Console.WriteLine("8. Rate Movie");
                 Console.WriteLine("0. Exit User Search");
 
                 input = Console.ReadLine();
@@ -145,7 +146,7 @@ namespace MovieLibrary2
 
                                         foreach (var movie in listOfMovies)
                                         {
-                                            Console.WriteLine($"Title: {movie.Movie.Title} Rating: {movie.Rating}");
+                                            Console.WriteLine($"Title: {movie.Movie.Title} Rating: {movie.Rating} Date Rated {movie.RatedAt}");
                                             count++;
                                             total += movie.Rating;
 

@@ -3,6 +3,7 @@ using MovieLibraryEntities.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace MovieLibrary2
         public SortMenu()
         {
 
-            Console.WriteLine("Do you want to search based on age or occupation?");
+            Console.WriteLine("Do you want to search based on age, occupation, or year?");
             char input = Console.ReadLine().ToLower()[0];
 
 
@@ -76,23 +77,60 @@ namespace MovieLibrary2
                                     if (sortedList != null)
                                     {
                                         Console.WriteLine($"{sortedList.Movie.Title} {sortedList.Rating}");
-                                                                            }
+                                    }
                                     else
                                         Console.WriteLine("There were no results for your search");
                                 }
                                 catch (Exception)
                                 {
 
-                                    Console.WriteLine("There were no results for your search"); 
+                                    Console.WriteLine("There were no results for your search");
                                 }
-                              
+
 
                             }
 
                         }
+                    }
                         break;
 
-                    }
+
+                        case 'y':
+                    {
+
+                        {
+                            using (var db = new MovieContext())
+
+
+                            {
+                                Console.WriteLine("What year do you want to search");
+                                var searchYear = Console.ReadLine();
+                                try
+                                {
+                                    var rankedYear = db.UserMovies.Include(x => x.Movie).Where(x => x.Movie.ReleaseDate.ToString().Contains(searchYear));
+                                                                                                          
+                                                                       
+                                    var sortedList = rankedYear.OrderByDescending(movie => movie.Rating).ThenBy(movie => movie.Movie.Title).FirstOrDefault();
+
+                                    if (sortedList != null)
+                                    {
+                                        Console.WriteLine($"{sortedList.Movie.Title} {sortedList.Rating}");
+                                    }
+                                    else
+                                        Console.WriteLine("There were no results for your search");
+                                }
+                                catch (Exception)
+                                {
+
+                                    Console.WriteLine("There were no results for your search");
+                                }
+
+
+                            }
+
+                        }
+                        
+                    } break;
             }
         }
     }
